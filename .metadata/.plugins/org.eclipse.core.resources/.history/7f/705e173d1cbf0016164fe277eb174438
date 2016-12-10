@@ -1,0 +1,25 @@
+package components;
+
+import java.util.Date;
+
+public class Offer {
+	private Date dateAppeared;
+	private Date dateModified;
+
+	public Offer(Date dateAppeared) {
+		this.dateAppeared = dateAppeared;
+	}
+
+	public Date getDateModified() {
+		return dateModified;
+	}
+
+	public void setDateModified(Date dateModified) {
+		this.dateModified = dateModified;
+	}
+
+	public Date getDateAppeared() {
+		return dateAppeared;
+	}
+
+}

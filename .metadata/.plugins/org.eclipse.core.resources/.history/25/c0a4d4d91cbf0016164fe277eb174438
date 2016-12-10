@@ -1,0 +1,5 @@
+package event;
+
+public interface Filter {
+	boolean apply(Event e);
+}

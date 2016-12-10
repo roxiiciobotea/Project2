@@ -1,0 +1,7 @@
+package event;
+
+import eventComponents.Event;
+
+public interface Filter {
+	boolean apply(Event e);
+}

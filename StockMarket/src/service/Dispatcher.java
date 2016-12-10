@@ -1,12 +1,15 @@
 package service;
 
-import components.Producer;
+import event.EventType;
+import eventComponents.Consumer;
+import eventComponents.Filter;
+import eventComponents.Producer;
 
 public class Dispatcher {
 
-	public void sendEvent(String type, Producer source) {
+	public void publish(EventType type, Producer source) {
 	}
 
-	public void registerListener(String type, Producer pClass) {
+	public void subscribe(EventType type, Filter filter, Consumer consumer) {
 	}
 }

@@ -1,0 +1,23 @@
+package components;
+
+import event.Event;
+
+public class Bidder implements Producer, Consumer {
+	private String name;
+
+	public Bidder(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Event newOffer() {
+		return new Event("NEW_OFFER");
+	}
+	
+	public Event modifiedOffer(){
+		return new Event("MODIFIED_OFFER");
+	}
+}

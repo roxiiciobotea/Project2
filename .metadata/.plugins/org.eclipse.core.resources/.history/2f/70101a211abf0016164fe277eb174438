@@ -1,0 +1,13 @@
+package service;
+
+import components.Consumer;
+import components.Producer;
+
+public class Dispatcher {
+
+	public void publish(String type, Producer source) {
+	}
+
+	public void registerListener(String type, Consumer pClass) {
+	}
+}

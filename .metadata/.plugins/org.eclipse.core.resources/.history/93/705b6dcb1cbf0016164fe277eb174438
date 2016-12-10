@@ -1,0 +1,7 @@
+package components;
+
+import event.Event;
+
+public interface Producer {
+	Event inform(Event e);
+}

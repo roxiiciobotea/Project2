@@ -1,0 +1,33 @@
+package components;
+
+import event.Event;
+
+public class Buyer implements Consumer, Producer {
+	private String name;
+	private double offeredAmount;
+
+	public Buyer(String name) {
+		this.name = name;
+	}
+	
+	public Event inform(Event e) {
+		return e;
+	}
+
+	public Event interestedInOffer(Offer o) {
+		return new Event("INTERESTED_BUYER");
+	}
+
+	public double getOfferedAmount() {
+		return offeredAmount;
+	}
+
+	public void setOfferedAmount(double offeredAmount) {
+		this.offeredAmount = offeredAmount;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+}

@@ -1,0 +1,13 @@
+package components;
+
+public class Buyer implements Consumer, Producer {
+	private String name;
+
+	public Buyer(String name) {
+		this.name = name;
+	}
+
+	public void interestedInOffer(Offer o) {
+
+	}
+}

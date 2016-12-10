@@ -1,0 +1,9 @@
+package components;
+
+import java.util.Date;
+
+public class Offer {
+	private Date dateAppeared;
+	private Date dateModified;
+
+}
