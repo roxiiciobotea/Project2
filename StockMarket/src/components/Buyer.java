@@ -1,13 +1,14 @@
 package components;
 
-import event.EventType;
+import service.Dispatcher;
 import serviceComponents.Consumer;
 import serviceComponents.Event;
 import serviceComponents.Producer;
 
 public class Buyer implements Consumer, Producer {
-	private String name;
-	private double offeredAmount;
+	private String name; // Buyer name
+	private double offeredAmount; // the amount the Buyer is offering for an
+									// Offer
 
 	public Buyer(String name) {
 		this.name = name;
@@ -26,13 +27,13 @@ public class Buyer implements Consumer, Producer {
 	}
 
 	/** Buyer is informed about an event */
-	public Event inform(Event e) {
-		return e;
+	public void inform(Event e, Producer p) {
+		// handle event
 	}
 
 	/** Buyer is intrested in an offer */
-	public Event interestedInOffer(Offer o) {
-		return new Event(EventType.INTERESTED_BUYER.toString());
+	public void interestedInOffer(Offer o) {
+		Dispatcher.instance().publish(new Event("INTERESTED_BUYER"), this);
 	}
 
 }

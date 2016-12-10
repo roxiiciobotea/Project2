@@ -2,7 +2,7 @@ package components;
 
 import java.util.Date;
 
-import event.EventType;
+import service.Dispatcher;
 import serviceComponents.Consumer;
 import serviceComponents.Event;
 import serviceComponents.Producer;
@@ -21,27 +21,19 @@ public class Bidder implements Producer, Consumer {
 	}
 
 	/** Bidder is informed about an event */
-	public Event inform(Event e) {
-		return e;
+	public void inform(Event e, Producer p) {
+	//handle event ?
 	}
 
 	/** Bidder issues a new offer */
 	public void issueOffer(Date dateCreated, double price) {
 		this.crtOffer = new Offer(dateCreated, price);
-		inform(newOffer());
+		Dispatcher.instance().publish(new Event("NEW_OFFER"), this);
 	}
 
 	/** Bidder modifies an offer */
 	public void modifyOffer(Date dateModified, double newPrice) {
 		crtOffer.modify(dateModified, newPrice);
-		inform(modifiedOffer());
-	}
-
-	private Event newOffer() {
-		return new Event(EventType.NEW_OFFER.toString());
-	}
-
-	private Event modifiedOffer() {
-		return new Event(EventType.MODIFIED_OFFER.toString());
+		Dispatcher.instance().publish(new Event("MODIFIED_OFFER"), this);
 	}
 }

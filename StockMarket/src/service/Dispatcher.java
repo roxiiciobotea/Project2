@@ -3,42 +3,51 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
-import event.EventType;
-import serviceComponents.Consumer;
-import serviceComponents.Filter;
-import serviceComponents.Producer;
-import serviceComponents.Subscription;
-import serviceComponents.Event;
+import serviceComponents.*;
 
 public class Dispatcher {
-	private List<Subscription> subscriptions = new ArrayList<>();
+	static private Dispatcher singleton = null;
+	private List<Subscription> subscriptions;
+
+	/**
+	 * Singleton => private constructor
+	 */
+	private Dispatcher() {
+		subscriptions = new ArrayList<>();
+	}
+
+	/**
+	 * access point to the singleton instance
+	 */
+	static public Dispatcher instance() {
+		if (singleton == null)
+			singleton = new Dispatcher();
+		return singleton;
+	}
 
 	/**
 	 * @param event
 	 * @param source
 	 * 
 	 *            for each subscriber, checks if it is interested in the event,
-	 *            applies the specific filter (if there is any) and if
-	 *            everything is ok, informs the subscriber about the event
+	 *            checks if there's any filter and applies it and if everything
+	 *            is ok, informs the subscriber about the event
 	 */
-	public void publish(Event event) {
+	public void publish(Event event, Producer source) {
 		for (Subscription s : subscriptions) {
 			if (s.getEventType().equals(event.getType())) {
-				if (s.getFilter() != null) {
-					if (s.getFilter().apply(event)) {
-						s.getConsumer().inform(event);
-					}
-				} else
-					s.getConsumer().inform(event);
+				if ((s.getFilter() == null) || (s.getFilter().apply(event))) {
+					s.getConsumer().inform(event, source );
+				}
 			}
 		}
-	}
-
-	public void subscribe(EventType type, Filter filter, Consumer consumer) {
 
 	}
 
-	public void notifySubscribers() {
-
+	/**
+	 * adds a new subscriber to the list (with specific event and filter)
+	 */
+	public void subscribe(Consumer consumer, String type, Filter filter) {
+		this.subscriptions.add(new Subscription(consumer, type, filter));
 	}
 }

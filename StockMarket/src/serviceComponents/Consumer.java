@@ -1,5 +1,5 @@
 package serviceComponents;
 
 public interface Consumer {
-	Event inform(Event e);
+	void inform(Event e, Producer source );
 }
