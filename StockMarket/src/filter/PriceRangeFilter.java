@@ -1,7 +1,7 @@
 package filter;
 
-import eventComponents.Event;
-import eventComponents.Filter;
+import serviceComponents.Event;
+import serviceComponents.Filter;
 
 public class PriceRangeFilter implements Filter {
 

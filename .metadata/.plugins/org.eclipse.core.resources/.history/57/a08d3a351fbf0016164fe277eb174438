@@ -1,0 +1,5 @@
+package serviceComponents;
+
+public interface Producer {
+	Event inform(Event e);
+}

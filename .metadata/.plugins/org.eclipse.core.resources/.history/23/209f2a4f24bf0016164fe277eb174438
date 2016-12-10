@@ -1,0 +1,5 @@
+package serviceComponents;
+
+public interface Consumer {
+	boolean isInterestedInEvent(Event e);
+}

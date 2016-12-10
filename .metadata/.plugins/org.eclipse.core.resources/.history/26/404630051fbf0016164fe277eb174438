@@ -1,0 +1,17 @@
+package service;
+
+import event.EventType;
+import serviceComponents.Consumer;
+import serviceComponents.Filter;
+import serviceComponents.Producer;
+
+public class Dispatcher {
+	private List<Subscriber> subscribers;
+
+	public void publish(EventType type, Producer source) {
+	}
+
+	public void subscribe(EventType type, Filter filter, Consumer consumer) {
+		
+	}
+}

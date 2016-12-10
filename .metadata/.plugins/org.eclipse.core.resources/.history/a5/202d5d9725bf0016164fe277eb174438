@@ -1,0 +1,6 @@
+package serviceComponents;
+
+import service.Dispatcher;
+
+public interface Producer {
+}

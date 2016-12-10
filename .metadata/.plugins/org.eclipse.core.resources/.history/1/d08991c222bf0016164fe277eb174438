@@ -1,0 +1,27 @@
+package service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import event.EventType;
+import serviceComponents.Consumer;
+import serviceComponents.Filter;
+import serviceComponents.Producer;
+import serviceComponents.Event;
+
+public class Dispatcher {
+	private Map<Consumer,Map<EventType,Filter>> subscribers;
+
+	public void publish(EventType type, Producer source) {
+		
+	}
+
+	public void subscribe(EventType type, Filter filter, Consumer consumer) {
+		this.subscribers.put(type, value)
+	}
+	
+	public void notifySubscribers() {
+		
+	}
+}

@@ -1,0 +1,41 @@
+package components;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import event.EventType;
+import serviceComponents.Consumer;
+import serviceComponents.Event;
+import serviceComponents.Producer;
+
+public class Buyer implements Consumer, Producer {
+	private String name;
+	private double offeredAmount;
+	private List<Event> subscribedEvents = new ArrayList<>();
+
+
+	public Buyer(String name) {
+		this.name = name;
+	}
+	
+	public Event inform(Event e) {
+		return e;
+	}
+
+	public Event interestedInOffer(Offer o) {
+		return new Event(EventType.INTERESTED_BUYER.toString());
+	}
+
+	public double getOfferedAmount() {
+		return offeredAmount;
+	}
+
+	public void setOfferedAmount(double offeredAmount) {
+		this.offeredAmount = offeredAmount;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+}

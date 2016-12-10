@@ -1,0 +1,55 @@
+package components;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import event.EventType;
+import serviceComponents.Consumer;
+import serviceComponents.Event;
+import serviceComponents.Producer;
+
+public class Bidder implements Producer, Consumer {
+	private String name; // bidder name
+	private Offer crtOffer; // current offer; maybe it should be replaced by a
+							// list of offers ?
+	private List<Event> subscribedEvents = new ArrayList<>();
+
+	public Bidder(String name) {
+		this.name = name;
+	}
+
+	public Event inform(Event e) {
+		return e;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	// issue a new offer
+	public void issueOffer(Date dateCreated, double price) {
+		this.crtOffer = new Offer(dateCreated, price);
+		inform(newOffer());
+	}
+
+	// modify an offer
+	public void modifyOffer(Date dateModified, double newPrice) {
+		crtOffer.modify(dateModified, newPrice);
+		inform(modifiedOffer());
+	}
+
+	private Event newOffer() {
+		return new Event(EventType.NEW_OFFER.toString());
+	}
+
+	private Event modifiedOffer() {
+		return new Event(EventType.MODIFIED_OFFER.toString());
+	}
+
+	public boolean isInterestedInEvent(Event e) {
+		if (subscribedEvents.contains(e))
+			return true;
+		return false;
+	}
+}

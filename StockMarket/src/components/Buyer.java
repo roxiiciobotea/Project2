@@ -1,9 +1,9 @@
 package components;
 
 import event.EventType;
-import eventComponents.Consumer;
-import eventComponents.Event;
-import eventComponents.Producer;
+import serviceComponents.Consumer;
+import serviceComponents.Event;
+import serviceComponents.Producer;
 
 public class Buyer implements Consumer, Producer {
 	private String name;
@@ -12,13 +12,9 @@ public class Buyer implements Consumer, Producer {
 	public Buyer(String name) {
 		this.name = name;
 	}
-	
-	public Event inform(Event e) {
-		return e;
-	}
 
-	public Event interestedInOffer(Offer o) {
-		return new Event(EventType.INTERESTED_BUYER.toString());
+	public String getName() {
+		return name;
 	}
 
 	public double getOfferedAmount() {
@@ -29,8 +25,14 @@ public class Buyer implements Consumer, Producer {
 		this.offeredAmount = offeredAmount;
 	}
 
-	public String getName() {
-		return name;
+	/** Buyer is informed about an event */
+	public Event inform(Event e) {
+		return e;
+	}
+
+	/** Buyer is intrested in an offer */
+	public Event interestedInOffer(Offer o) {
+		return new Event(EventType.INTERESTED_BUYER.toString());
 	}
 
 }

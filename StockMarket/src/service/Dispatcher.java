@@ -1,15 +1,44 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import event.EventType;
-import eventComponents.Consumer;
-import eventComponents.Filter;
-import eventComponents.Producer;
+import serviceComponents.Consumer;
+import serviceComponents.Filter;
+import serviceComponents.Producer;
+import serviceComponents.Subscription;
+import serviceComponents.Event;
 
 public class Dispatcher {
+	private List<Subscription> subscriptions = new ArrayList<>();
 
-	public void publish(EventType type, Producer source) {
+	/**
+	 * @param event
+	 * @param source
+	 * 
+	 *            for each subscriber, checks if it is interested in the event,
+	 *            applies the specific filter (if there is any) and if
+	 *            everything is ok, informs the subscriber about the event
+	 */
+	public void publish(Event event) {
+		for (Subscription s : subscriptions) {
+			if (s.getEventType().equals(event.getType())) {
+				if (s.getFilter() != null) {
+					if (s.getFilter().apply(event)) {
+						s.getConsumer().inform(event);
+					}
+				} else
+					s.getConsumer().inform(event);
+			}
+		}
 	}
 
 	public void subscribe(EventType type, Filter filter, Consumer consumer) {
+
+	}
+
+	public void notifySubscribers() {
+
 	}
 }

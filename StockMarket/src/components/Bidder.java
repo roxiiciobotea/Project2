@@ -3,35 +3,36 @@ package components;
 import java.util.Date;
 
 import event.EventType;
-import eventComponents.Consumer;
-import eventComponents.Event;
-import eventComponents.Producer;
+import serviceComponents.Consumer;
+import serviceComponents.Event;
+import serviceComponents.Producer;
 
 public class Bidder implements Producer, Consumer {
-	private String name;		//bidder name
-	private Offer crtOffer;		//current offer; maybe it should be replaced by a list of offers ?
+	private String name; // bidder name
+	private Offer crtOffer; // current offer; maybe it should be replaced by a
+							// list of offers ?
 
 	public Bidder(String name) {
 		this.name = name;
-	}
-	
-	
-	public Event inform(Event e) {
-		return e;
 	}
 
 	public String getName() {
 		return name;
 	}
-	
-	//issue a new offer
+
+	/** Bidder is informed about an event */
+	public Event inform(Event e) {
+		return e;
+	}
+
+	/** Bidder issues a new offer */
 	public void issueOffer(Date dateCreated, double price) {
 		this.crtOffer = new Offer(dateCreated, price);
 		inform(newOffer());
 	}
-	
-	//modify an offer
-	public void modifyOffer(Date dateModified, double newPrice){
+
+	/** Bidder modifies an offer */
+	public void modifyOffer(Date dateModified, double newPrice) {
 		crtOffer.modify(dateModified, newPrice);
 		inform(modifiedOffer());
 	}
@@ -39,8 +40,8 @@ public class Bidder implements Producer, Consumer {
 	private Event newOffer() {
 		return new Event(EventType.NEW_OFFER.toString());
 	}
-	
-	private Event modifiedOffer(){
+
+	private Event modifiedOffer() {
 		return new Event(EventType.MODIFIED_OFFER.toString());
 	}
 }

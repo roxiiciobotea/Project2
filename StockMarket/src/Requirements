@@ -6,7 +6,7 @@ The application consists of a set of components (java classes), as follows:
 - a set of event producers & consumers
 - a dispatcher implemented as an event loop or as a separate service (a class featuring methods as sendEvent(type, source)). 
 - the dispatcher will provide methods like registerListener(type, class) which can be used by classes that need to register as event consumers.
-Events have a type attribute, represented through an identifier (character string), and consumers will register to the dispatcher by specifiyng the type of 
+Events have a type attribute, represented through an identifier (character string), and consumers will register to the dispatcher by specifying the type of 
 events they are interested in,.
 A class may be interested in more than one event types.
 

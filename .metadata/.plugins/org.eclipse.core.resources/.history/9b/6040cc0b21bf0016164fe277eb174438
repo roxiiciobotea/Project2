@@ -1,0 +1,7 @@
+package serviceComponents;
+
+import service.Dispatcher;
+
+public interface Producer {
+	Event inform(Dispatcher d, Event e);
+}
