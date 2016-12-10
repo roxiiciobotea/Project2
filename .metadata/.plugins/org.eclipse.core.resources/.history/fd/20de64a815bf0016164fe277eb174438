@@ -1,0 +1,21 @@
+Bursa online
+
+Sistemul ofera suport pentru gestionarea unei burse si este scris
+orientat pe evenimente. 
+
+Un eveniment este aparitia unei oferte, modificarea ei, aparitia unui cumparator pentru o oferta etc. 
+
+Actorii din sistem (ofertanti, cumparatori) genereaza evenimente si se
+inregistreaza la evenimentele pe care le considera de interes. Spre
+exemplu, un posibil cumparator se va abona pentru a vedea in timp real
+ofertele companiilor de care este interesat. Un ofertant trebuie sa
+poata afla in timp real daca un cumparator este interesat de oferta
+sa. Pentru aceasta, ofertantii se pot declara interesati de aparitia
+unui eveniment de tip "oferta citita" si pot specifica filtre
+suplimentare (cum ar fi data minima de la care sunt interesati de
+eveniment, valoarea minima oferita de cumparator etc.) 
+
+In general, consumatorii de evenimente pot specifica filtre complexe
+pentru a realiza abonarea: un cumparator poate preciza, de exemplu,
+care sunt intervalele de pret in care ofertele de la firmele alese
+devin interesante, vechimea maxima a ofertelor etc.
