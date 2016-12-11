@@ -11,7 +11,7 @@ public class Subscription {
 	public Subscription(Consumer consumer, String eventType, List<Filter> filters) {
 		this.consumer = consumer;
 		this.eventType = eventType;
-		this.filters = filters;
+		this.filters = new ArrayList<>(filters);
 	}
 
 	public Consumer getConsumer() {

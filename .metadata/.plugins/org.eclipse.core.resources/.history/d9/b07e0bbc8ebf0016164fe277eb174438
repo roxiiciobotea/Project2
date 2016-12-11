@@ -1,17 +1,14 @@
 package serviceComponents;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Subscription {
 	private Consumer consumer;
 	private String eventType;
-	private List<Filter> filters;
+	private Filter filter;
 
-	public Subscription(Consumer consumer, String eventType, List<Filter> filters) {
+	public Subscription(Consumer consumer, String eventType, Filter filter) {
 		this.consumer = consumer;
 		this.eventType = eventType;
-		this.filters = filters;
+		this.filter = filter;
 	}
 
 	public Consumer getConsumer() {
@@ -22,8 +19,8 @@ public class Subscription {
 		return eventType;
 	}
 
-	public List<Filter> getFilters() {
-		return filters;
+	public Filter getFilter() {
+		return filter;
 	}
 	
 }

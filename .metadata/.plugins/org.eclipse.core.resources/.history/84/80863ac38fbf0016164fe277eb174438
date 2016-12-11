@@ -46,9 +46,7 @@ public class Dispatcher {
 					}
 					if (ok)
 						s.getConsumer().inform(event, source);
-				} else
-					s.getConsumer().inform(event, source);
-
+				}
 			}
 		}
 	}

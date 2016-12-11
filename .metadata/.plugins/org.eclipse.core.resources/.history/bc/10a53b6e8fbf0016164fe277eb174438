@@ -46,9 +46,7 @@ public class Dispatcher {
 					}
 					if (ok)
 						s.getConsumer().inform(event, source);
-				} else
-					s.getConsumer().inform(event, source);
-
+				}
 			}
 		}
 	}
@@ -56,7 +54,7 @@ public class Dispatcher {
 	/**
 	 * adds a new subscriber to the list (with specific event and filter)
 	 */
-	public void subscribe(Consumer consumer, String type, List<Filter> filters) {
-		this.subscriptions.add(new Subscription(consumer, type, filters));
+	public void subscribe(Consumer consumer, String type, Filter filter) {
+		this.subscriptions.add(new Subscription(consumer, type, filter));
 	}
 }

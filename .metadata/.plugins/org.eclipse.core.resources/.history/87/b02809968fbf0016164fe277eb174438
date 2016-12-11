@@ -24,13 +24,13 @@ public class Main {
 		Filter f5 = new OfferSourceFilter(apple); //ok
 
 		// creating subscriptions
-		d.subscribe(jonSnow, "NEW_OFFER", Arrays.asList(f1,f3));
-		d.subscribe(jonSnow, "MODIFIED_OFFER", Arrays.asList(f4)); 
-		//d.subscribe(ibm, "INTERESTED_BUYER", f2);
+		d.subscribe(jonSnow, "NEW_OFFER", null);
+		d.subscribe(jonSnow, "MODIFIED_OFFER", Arrays.asList(f4));
+		d.subscribe(ibm, "INTERESTED_BUYER", f2);
 
-		apple.issueOffer(Date.valueOf("2016-12-11"), 60);
+		apple.issueOffer(Date.valueOf("2016-12-11"), 150);
 		ibm.issueOffer(Date.valueOf("2016-12-10"), 100);
 		jonSnow.interestedInOffer(Date.valueOf("2016-12-11"), 90);
-		ibm.modifyOffer(Date.valueOf("2016-12-11"), 100);
+		//ibm.modifyOffer(Date.valueOf("2016-12-11"), 100);
 	}
 }
