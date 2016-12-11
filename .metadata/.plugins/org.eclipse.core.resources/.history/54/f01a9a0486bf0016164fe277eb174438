@@ -1,0 +1,14 @@
+package main;
+
+import components.Bidder;
+import components.Buyer;
+import service.Dispatcher;
+
+public class Main {
+	public static void main(String[] args) {
+		Dispatcher d = Dispatcher.instance();
+		
+		Bidder ibm = new Bidder("IBM");
+		Buyer jonSnow = new Buyer("Jon Snow");
+	}
+}

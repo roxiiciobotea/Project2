@@ -1,0 +1,7 @@
+package event;
+
+import serviceComponents.Event;
+
+public abstract class AbstractOffer extends Event {
+
+}

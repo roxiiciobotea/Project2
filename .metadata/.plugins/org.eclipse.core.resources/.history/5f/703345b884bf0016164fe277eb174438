@@ -1,0 +1,29 @@
+package event;
+
+import java.util.Date;
+
+
+public class ModifiedOffer extends AbstractOffer {
+	private Date dateAppeared;
+	private double price;
+	private Date dateModified;
+
+	public ModifiedOffer(NewOffer offer, Date dateModified, double newPrice) {
+		super("MODIFIED_OFFER");
+		this.dateAppeared = offer.getDateAppeared();
+		this.price = newPrice;
+		this.dateModified = dateModified;
+	}
+
+	public Date getDateAppeared() {
+		return dateAppeared;
+	}
+
+	public Date getDateModified() {
+		return dateModified;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+}

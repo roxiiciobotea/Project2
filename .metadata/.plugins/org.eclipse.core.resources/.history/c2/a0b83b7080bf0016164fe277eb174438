@@ -1,0 +1,14 @@
+package serviceComponents;
+
+public class Event<T> {
+	private String type;
+	private <T> info;
+
+	public Event(String type) {
+		this.type = type;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+}

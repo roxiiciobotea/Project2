@@ -1,0 +1,22 @@
+package event;
+
+import java.util.Date;
+
+import serviceComponents.Event;
+
+public abstract class AbstractOffer extends Event {
+	protected Date dateAppeared;
+	protected double price;
+
+	public AbstractOffer(String type) {
+		super(type);
+	}
+
+	public Date getDateAppeared() {
+		return this.dateAppeared;
+	}
+	
+	public double getPrice() {
+		return this.price;
+	}
+}

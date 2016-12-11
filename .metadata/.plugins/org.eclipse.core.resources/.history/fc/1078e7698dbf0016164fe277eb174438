@@ -1,0 +1,12 @@
+package event;
+
+import java.util.Date;
+
+public class NewOffer extends AbstractOffer {
+
+	public NewOffer(Date dateAppeared, double price) {
+		super("NEW_OFFER");
+		this.dateAppeared = dateAppeared;
+		this.price = price;
+	}
+}

@@ -1,0 +1,14 @@
+package event;
+
+import serviceComponents.Event;
+
+public class NewOfferEvent extends Event {
+
+	public NewOfferEvent(String type) {
+		super(type);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}

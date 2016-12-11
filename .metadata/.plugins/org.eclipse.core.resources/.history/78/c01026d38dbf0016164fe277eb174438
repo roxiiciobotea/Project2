@@ -1,0 +1,19 @@
+package filter;
+
+import serviceComponents.Event;
+import serviceComponents.Filter;
+
+public class OfferSourceFilter implements Filter {
+	private Producer source;
+
+	public OfferSourceFilter(Producer source) {
+		this.source = source;
+	}
+
+	@Override
+	public boolean apply(Event e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

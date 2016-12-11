@@ -1,0 +1,30 @@
+package filter;
+
+import java.util.Date;
+
+import event.AbstractOffer;
+import event.ModifiedOffer;
+import serviceComponents.Event;
+import serviceComponents.Filter;
+
+public class MinimumModifiedDateFilter implements Filter {
+	private Date minimumDate;
+
+	public MinimumModifiedDateFilter(Date minimumDate) {
+		this.minimumDate = minimumDate;
+	}
+
+	@Override
+	public boolean apply(Event e) {
+		if (e instanceof ModifiedOffer)
+			return apply((ModifiedOffer) e);
+		return false;
+	}
+
+	private boolean apply(ModifiedOffer e) {
+		if (e.getDateModified().compareTo(this.minimumDate) <= 0) {
+			return false;
+		}
+		return true;
+	}
+}

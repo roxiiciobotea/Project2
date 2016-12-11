@@ -1,0 +1,14 @@
+package event;
+
+import java.util.Date;
+
+import serviceComponents.Event;
+
+public abstract class AbstractOffer extends Event {
+
+	public AbstractOffer(String type) {
+		super(type);
+	}
+
+	public abstract Date getDateAppeared();
+}

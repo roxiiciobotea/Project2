@@ -1,0 +1,23 @@
+package event;
+
+import java.util.Date;
+
+public class NewOffer extends AbstractOffer {
+	private Date dateAppeared;
+	private double startingPrice;
+
+	public NewOffer(Date dateAppeared, double price) {
+		super("NEW_OFFER");
+		this.dateAppeared = dateAppeared;
+		this.startingPrice = price;
+	}
+
+	public Date getDateAppeared() {
+		return dateAppeared;
+	}
+	
+	public double getStartingPrice() {
+		return this.startingPrice;
+	}
+
+}

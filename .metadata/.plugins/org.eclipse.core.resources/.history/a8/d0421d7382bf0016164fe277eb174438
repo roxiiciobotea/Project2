@@ -1,0 +1,21 @@
+package components;
+
+import java.util.Date;
+
+import serviceComponents.Event;
+
+public class NewOffer extends Event {
+	private Date dateAppeared;
+	private double startingPrice;
+
+	public NewOffer(Date dateAppeared, double price) {
+		super("NEW_OFFER");
+		this.dateAppeared = dateAppeared;
+		this.startingPrice = price;
+	}
+
+	public Date getDateAppeared() {
+		return dateAppeared;
+	}
+
+}

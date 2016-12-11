@@ -1,0 +1,13 @@
+package event;
+
+import java.util.Date;
+
+import serviceComponents.Event;
+
+public class ModifiedOffer extends NewOffer {
+	private Date dateModified;
+
+	public ModifiedOffer(Event offer, Date dateModified){
+		
+	}
+}

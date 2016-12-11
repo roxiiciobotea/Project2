@@ -13,3 +13,10 @@
 1481404955597	Rename package 'eventComponents'
 1481407662019	Move compilation unit
 1481409283031	Delete element
+1481446955374	Delete element
+1481447661720	Rename field 'price'
+1481447717086	Rename type 'Offer'
+1481447789802	Move compilation unit
+1481449642062	Rename type 'MinimumDateFilter'
+1481451190836	Rename field 'startingPrice'
+1481452214704	Delete element

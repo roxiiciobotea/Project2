@@ -1,0 +1,30 @@
+package event;
+
+import java.util.Date;
+
+import serviceComponents.Event;
+
+public class ModifiedOffer extends Event {
+	private Date dateAppeared;
+	private double price;
+	private Date dateModified;
+
+	public ModifiedOffer(NewOffer offer, Date dateModified, double newPrice) {
+		super("MODIFIED_OFFER");
+		this.dateAppeared = offer.getDateAppeared();
+		this.price = offer.getStartingPrice();
+		this.dateModified = dateModified;
+	}
+
+	public Date getDateAppeared() {
+		return dateAppeared;
+	}
+
+	public Date getDateModified() {
+		return dateModified;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+}

@@ -2,6 +2,9 @@ package components;
 
 import java.util.Date;
 
+import event.AbstractOffer;
+import event.ModifiedOffer;
+import event.NewOffer;
 import service.Dispatcher;
 import serviceComponents.Consumer;
 import serviceComponents.Event;
@@ -9,8 +12,10 @@ import serviceComponents.Producer;
 
 public class Bidder implements Producer, Consumer {
 	private String name; // bidder name
-	private Offer crtOffer; // current offer; maybe it should be replaced by a
-							// list of offers ?
+	private AbstractOffer crtOffer; // current offer; maybe it should be
+									// replaced
+	// by a
+	// list of offers ?
 
 	public Bidder(String name) {
 		this.name = name;
@@ -22,18 +27,22 @@ public class Bidder implements Producer, Consumer {
 
 	/** Bidder is informed about an event */
 	public void inform(Event e, Producer p) {
-	//handle event ?
+		System.out.println("I was informed about " + e + " from " + p);
 	}
 
 	/** Bidder issues a new offer */
 	public void issueOffer(Date dateCreated, double price) {
-		this.crtOffer = new Offer(dateCreated, price);
-		Dispatcher.instance().publish(new Event("NEW_OFFER"), this);
+		this.crtOffer = new NewOffer(this, dateCreated, price);
+		Dispatcher.instance().publish(crtOffer, this);
 	}
 
 	/** Bidder modifies an offer */
 	public void modifyOffer(Date dateModified, double newPrice) {
-		crtOffer.modify(dateModified, newPrice);
-		Dispatcher.instance().publish(new Event("MODIFIED_OFFER"), this);
+		crtOffer = new ModifiedOffer(this, crtOffer, dateModified, newPrice);
+		Dispatcher.instance().publish(crtOffer, this);
+	}
+
+	public String toString() {
+		return "bidder " + this.name;
 	}
 }

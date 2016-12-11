@@ -1,0 +1,27 @@
+package event;
+
+import java.util.Date;
+
+import serviceComponents.Event;
+
+public class InterestedInOffer extends Event {
+	private AbstractOffer offer;
+	private Date date;
+	private double offeredAmount;
+
+	public InterestedInOffer(/*AbstractOffer offer, */Date date, double offeredAmount) {
+		super("INTERESTED_BUYER");
+		//this.offer = offer;
+		this.date = date;
+		this.offeredAmount = offeredAmount;
+	}
+
+	public Date getDate() {
+		return this.date;
+	}
+
+	public double getOfferedAmount() {
+		return offeredAmount;
+	}
+
+}

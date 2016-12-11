@@ -1,0 +1,19 @@
+package filter;
+
+import serviceComponents.Event;
+import serviceComponents.Filter;
+
+public class MinimumOfferedValueFilter implements Filter {
+	private double minimumOfferedValue;
+
+	public MinimumOfferedValueFilter(double value) {
+		this.minimumOfferedValue = value;
+	}
+
+	@Override
+	public boolean apply(Event e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

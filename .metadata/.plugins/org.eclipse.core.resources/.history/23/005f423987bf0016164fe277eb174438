@@ -1,0 +1,14 @@
+package filter;
+
+import event.AbstractOffer;
+import serviceComponents.Event;
+import serviceComponents.Filter;
+
+public class MinimumAppearedDateFilter implements Filter {
+
+	@Override
+	public boolean apply(AbstractOffer e) {
+		
+	}
+
+}

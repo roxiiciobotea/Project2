@@ -1,0 +1,22 @@
+package event;
+
+import serviceComponents.Event;
+
+public class InterestedInOffer extends Event {
+	private Event offer;
+	private double offeredAmount;
+
+	public InterestedInOffer(Event offer) {
+		super("INTERESTED_BUYER");
+		this.offer = offer;
+	}
+
+	public double getOfferedAmount() {
+		return offeredAmount;
+	}
+
+	public void setOfferedAmount(double offeredAmount) {
+		this.offeredAmount = offeredAmount;
+	}
+	
+}

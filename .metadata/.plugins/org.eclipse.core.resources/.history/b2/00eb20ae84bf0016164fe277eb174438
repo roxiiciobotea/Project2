@@ -1,0 +1,12 @@
+package event;
+
+import serviceComponents.Event;
+
+public abstract class AbstractOffer extends Event {
+
+	public AbstractOffer(String type) {
+		super(type);
+		// TODO Auto-generated constructor stub
+	}
+
+}

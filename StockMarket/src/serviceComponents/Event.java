@@ -10,4 +10,10 @@ public class Event {
 	public String getType() {
 		return this.type;
 	}
+
+	@Override
+	public String toString() {
+		return "event " + type;
+	}
+
 }

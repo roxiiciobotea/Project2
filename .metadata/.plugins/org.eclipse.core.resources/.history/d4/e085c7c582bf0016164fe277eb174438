@@ -1,0 +1,10 @@
+package event;
+
+import serviceComponents.Event;
+
+public class ModifiedOffer extends NewOffer {
+
+	public ModifiedOffer(){
+		
+	}
+}
