@@ -68,7 +68,7 @@ public class Main {
 
 		jhonSmith.interestedInOffer(microsoft, Date.valueOf("2016-12-12"), 60);
 		mikeWaters.interestedInOffer(apple, Date.valueOf("2016-12-11"), 90); //not notified bc of filter
-		charlesTick.interestedInOffer(apple, Date.valueOf("2016-12-12"), 175);
+		charlesTick.interestedInOffer(apple, Date.valueOf("2016-12-12"), 125);
 		samHamilton.interestedInOffer(ibm, Date.valueOf("2016-12-10"), 180);
 	}
 }
