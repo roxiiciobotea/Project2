@@ -12,10 +12,7 @@ import serviceComponents.Producer;
 
 public class Bidder implements Producer, Consumer {
 	private String name; // bidder name
-	private AbstractOffer crtOffer; // current offer; maybe it should be
-									// replaced
-	// by a
-	// list of offers ?
+	private AbstractOffer crtOffer; // current offer
 
 	public Bidder(String name) {
 		this.name = name;
@@ -27,7 +24,7 @@ public class Bidder implements Producer, Consumer {
 
 	/** Bidder is informed about an event */
 	public void inform(Event e, Producer p) {
-		System.out.println("I was informed about " + e + " from " + p);
+		System.out.println(this + ": I was informed about " + e + " from " + p);
 	}
 
 	/** Bidder issues a new offer */

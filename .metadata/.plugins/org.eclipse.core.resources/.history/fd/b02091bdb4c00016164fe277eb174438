@@ -1,0 +1,20 @@
+package filter;
+
+import components.Bidder;
+import serviceComponents.Event;
+import serviceComponents.Filter;
+
+public class InterestedBuyerFilter implements Filter {
+	private Bidder offerSource;
+
+	public InterestedBuyerFilter(Bidder offerSource) {
+		this.offerSource=offerSource;
+	}
+
+	@Override
+	public boolean apply(Event e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

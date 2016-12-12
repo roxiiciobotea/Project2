@@ -15,15 +15,13 @@ public class MinimumModifiedDateFilter implements Filter {
 
 	@Override
 	public boolean apply(Event e) {
-		if (e instanceof ModifiedOffer)
-			return apply((ModifiedOffer) e);
-		return false;
-	}
+		if (e instanceof ModifiedOffer) {
+			ModifiedOffer offer = (ModifiedOffer) e;
 
-	private boolean apply(ModifiedOffer e) {
-		if (e.getDateModified().compareTo(this.minimumDate) <= 0) {
-			return false;
+			if (offer.getDateModified().compareTo(this.minimumDate) <= 0)
+				return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 }

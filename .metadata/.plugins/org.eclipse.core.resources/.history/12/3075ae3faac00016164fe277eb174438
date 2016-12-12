@@ -1,0 +1,62 @@
+package service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import serviceComponents.*;
+
+public class Dispatcher {
+	static private Dispatcher singleton = null;
+	private List<Subscription> subscriptions;
+
+	/**
+	 * Singleton => private constructor
+	 */
+	private Dispatcher() {
+		subscriptions = new ArrayList<>();
+	}
+
+	/**
+	 * access point to the singleton instance
+	 */
+	static public Dispatcher instance() {
+		if (singleton == null)
+			singleton = new Dispatcher();
+		return singleton;
+	}
+
+	/**
+	 * @param event
+	 * @param source
+	 * 
+	 *            for each subscriber, checks if it is interested in the event,
+	 *            checks if there's any filter and applies it and if everything
+	 *            is ok, informs the subscriber about the event
+	 */
+	public void publish(Event event, Producer source) {
+		for (Subscription s : subscriptions) {
+			if (s.getEventType().equals(event.getType())) {
+				List<Filter> subscriptionFilters = s.getFilters();
+
+				if (subscriptionFilters != null) {
+					boolean ok = true;
+					for (Filter f : subscriptionFilters) {
+						if (!f.apply(event))
+							ok = false;
+					}
+					if (ok)
+						s.getConsumer().inform(event, source);
+				} else
+					s.getConsumer().inform(event, source);
+
+			}
+		}
+	}
+
+	/**
+	 * adds a new subscriber to the list (with specific event and filter)
+	 */
+	public void subscribe(Consumer consumer, String type, List<Filter> filters) {
+		this.subscriptions.add(new Subscription(consumer, type, filters));
+	}
+}

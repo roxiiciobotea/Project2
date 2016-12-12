@@ -23,12 +23,12 @@ public class Buyer implements Consumer, Producer {
 
 	/** Buyer is informed about an event */
 	public void inform(Event e, Producer p) {
-		System.out.println("I was informed about " + e + " from " + p);
+		System.out.println(this + ": I was informed about " + e + " from " + p);
 	}
 
 	/** Buyer is intrested in an offer */
-	public void interestedInOffer(/* AbstractOffer o, */Date d, double offeredAmount) {
-		Dispatcher.instance().publish(new InterestedInOffer(/* o, */d, offeredAmount), this);
+	public void interestedInOffer(Bidder source, Date d, double offeredAmount) {
+		Dispatcher.instance().publish(new InterestedInOffer(source, d, offeredAmount), this);
 	}
 
 	public String toString() {

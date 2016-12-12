@@ -13,15 +13,13 @@ public class MinimumOfferedValueFilter implements Filter {
 
 	@Override
 	public boolean apply(Event e) {
-		if(e instanceof InterestedInOffer)
-			return apply((InterestedInOffer)e);
+		if (e instanceof InterestedInOffer) {
+			InterestedInOffer event = (InterestedInOffer) e;
+			
+			if (event.getOfferedAmount() < this.minimumOfferedValue)
+				return false;
+			return true;
+		}
 		return false;
 	}
-
-	private boolean apply(InterestedInOffer e) {
-		if (e.getOfferedAmount() < this.minimumOfferedValue)
-			return false;
-		return true;
-	}
-
 }

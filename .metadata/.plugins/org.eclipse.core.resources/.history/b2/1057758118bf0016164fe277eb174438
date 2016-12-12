@@ -1,7 +1,0 @@
-package components;
-
-public class Buyer implements Consumer, Producer {
-	public void interestedInOffer(Offer o) {
-
-	}
-}

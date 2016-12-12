@@ -14,14 +14,13 @@ public class OfferSourceFilter implements Filter {
 
 	@Override
 	public boolean apply(Event e) {
-		if(e instanceof AbstractOffer)
-			return apply((AbstractOffer)e);
-		return false;
-	}
+		if (e instanceof AbstractOffer) {
+			AbstractOffer offer = (AbstractOffer) e;
 
-	private boolean apply(AbstractOffer e) {
-		if (e.getSource() != this.source)
-			return false;
-		return true;
+			if (offer.getSource() != this.source)
+				return false;
+			return true;
+		}
+		return false;
 	}
 }

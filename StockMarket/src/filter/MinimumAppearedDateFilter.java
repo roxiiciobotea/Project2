@@ -15,15 +15,13 @@ public class MinimumAppearedDateFilter implements Filter {
 
 	@Override
 	public boolean apply(Event e) {
-		if (e instanceof AbstractOffer)
-			return apply((AbstractOffer) e);
-		return false;
-	}
+		if (e instanceof AbstractOffer) {
+			AbstractOffer offer = (AbstractOffer) e;
 
-	private boolean apply(AbstractOffer e) {
-		if (e.getDateAppeared().compareTo(this.minimumDate) <= 0) {
-			return false;
+			if (offer.getDateAppeared().compareTo(this.minimumDate) <= 0)
+				return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 }

@@ -1,6 +1,6 @@
 package serviceComponents;
 
-public class Event {
+public abstract class Event {
 	private String type;
 
 	public Event(String type) {
